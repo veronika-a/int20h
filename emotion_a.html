@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>人脸检测</title>
+    <script type="text/javascript" src="facepp_sdk/jquery.min.js"></script>
+    <script type="text/javascript" src="facepp_sdk/exif.js"></script>
+    <script type="text/javascript" src="facepp_sdk/facepp_sdk.js"></script>
+    <script type="text/javascript" src="https://embedr.flickr.com/assets/client-code.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+</head>
+
+
+<body>
+
+
+<!--Header-->
+<div class="container-fluid">
+    <div class="row menu">
+        <div class="col-md-12">
+            <ul>
+                <li><a href="main.html">INT20H</a></li>
+                <li><a href="emotion_h.html">EMOTIONS</a></li>
+            </ul>
+        </div>
+    </div>
+    <header class="row">
+        <div class="col-md-12 headerimg">
+        </div>
+    </header>
+    <div class="row">
+        <div class="col-md-12 z1">
+            HACKATHON INT20H 2019
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-9 col-sm-10 col-9 emotions">
+            <div class="row justify-content-center ">
+                <div class="col-md-3 col-sm-6 emotion b1">
+                    <a href="emotion_h.html">
+                        <button >happiness</button>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 emotion b2">
+                    <a href="emotion_s.html">
+                        <button>disgust</button>
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 emotion b3">
+                    <a href="emotion_n.html">
+                        <button>neutral</button>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 emotion b4">
+                        <button id="submit" onclick="JavaScriptFetch()">anger</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center" id="outputDiv"></div>
+</div>
+
+
+<script>
+    /* var facepp = new FACEPP(APIKEY, APISERET, 1);
+
+
+     let attributes = 'emotion';
+     // 以图片URL的方式上传图片
+     let dic = {
+         'image_url': 'https://images.unsplash.com/photo-1547444795-c0d04cbdb439?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=381&q=80',
+         'return_attributes': attributes
+     };
+
+
+     facepp.detectFace(dic, success, failed);
+
+ */
+    function JavaScriptFetch() {
+
+        var script = document.createElement('script');
+
+        script.src = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&tags=competitions,Hackathon,int20h&tagmode=any&id=144522605@N06";
+
+        document.querySelector('head').appendChild(script);
+
+    }
+
+    var image = "";
+    var images = [];
+    var i = 0;
+    var k = -1;
+    var l = 0;
+    var facepp = new FACEPP(APIKEY, APISERET, 1);
+
+    function jsonFlickrFeed(data) {
+
+        data.items.forEach(function (element) {
+
+            images[l] = "" + element.media.m;
+            console.log(images[l]);
+            l++;
+
+        });
+        l = images.length;
+        console.log(l);
+        for (i; i < l; i++) {
+            let attributes = 'emotion';
+            // 以图片URL的方式上传图片
+            let dic = {
+                'image_url': images[i],
+                'return_attributes': attributes
+            };
+            facepp.detectFace(dic, success, failed);
+        }
+    }
+
+
+    //成功的回调
+    function success(e) {
+        //显示结果
+        k++;
+        var n = 0;
+        console.log(k);
+        console.log(e);
+        //let textView = document.getElementById('text');
+        //textView.innerText = JSON.stringify(e, null, " ");
+        while (n < e.faces.length) {
+
+            if (e.faces[n].attributes.emotion.anger > 10) {
+                image += "<img src=\"" + images[k] + "\"/>";
+                console.log(image);
+                document.getElementById("outputDiv").innerHTML = image;
+                break;
+            }
+            n++;
+        }
+
+    }
+
+    //失败的回调
+    function failed(e) {
+        console.log(e);
+        //  let textView = document.getElementById('text');
+        //textView.innerText = JSON.stringify(e);
+    }
+
+
+</script>
+
+
+</body>
+</html>
+
+<script>
+    //  resetContainer();
+
+    //点击选择图片
+    function clickInput() {
+        document.getElementById('input').click();
+    }
+</script>
+

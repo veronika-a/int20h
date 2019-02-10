@@ -1,0 +1,185 @@
+@font-face {
+	font-family: Raleway;
+	src: url("font/Raleway-Medium.ttf");
+	font-weight: normal;
+}
+@font-face {
+	font-family: Lato;
+	src: url("font/Lato-Regular.ttf");
+	font-weight: normal;
+}
+.headerimg{	
+	background: url(img/headerimg.jpg) ;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 100%;
+	height: 400px;
+}
+.z1{
+	font-family: Lato;
+	padding-top: 75px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold; 
+	color: #DD0000;
+}
+.z2{
+	padding-top: 40px;
+	font-family: Lato;
+	font-weight: 300;
+	font-size: 18px;
+	text-align: center;
+	color: #3C3C3C;
+}
+.sgallery{
+	padding-top: 40px;
+}
+.sgallery img{
+	padding-top: 30px;
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 100%;
+	height: auto;
+}
+.line{
+	background: #5F5F5F;
+	width: 100%;
+	height: 2px;
+	margin-top: 70px;
+}
+.z3{
+
+	font-family: Lato;
+	padding-top: 95px;
+	font-weight: bold;
+	font-size: 24px;
+	text-align: center;
+	color: #DD0000;
+}
+.z4{
+	font-family: Lato;
+	padding-top: 25px;
+	font-size: 12px;
+	color: #2FA7AC;
+	font-weight: bold;
+	text-align: center;
+}
+.z5{
+	text-align: center;
+	font-family: Raleway;
+	font-size: 18px;
+	text-align: center;
+	color: #5F5F5F;
+}
+.emotions{
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 50px;
+}
+.emotion button{
+	border-color: #C0C0C0;
+	border-width: 2px;
+	border-style: solid;
+	color: #C0C0C0;
+	padding: 15px;
+	text-align: center;
+	background: #fff;
+	width: 100%;
+	margin-top: 20px;
+	border-radius: 30px;
+}
+.emotion button a{
+
+	color: #C0C0C0;
+}
+.emotion button:hover{
+	color: #C0C0C0;
+}
+.b1 button:hover{
+	background: #F44752;
+}
+.b2 button:hover{
+	background: #2FA7AC;
+}
+.b3 button:hover{
+	background: #954444;
+}
+.b4 button:hover{
+	background: #45495B;
+}
+.b5 button:hover{
+	background: #FFC225;
+}
+.b6 button:hover{
+	background: #4759B3;
+}
+.b7 button:hover{
+	background: #F45532;
+}
+.b8 button:hover{
+	background: #369A46;
+}
+
+
+.teamwork{	
+	margin-top: 60px;
+	background: url(img/teamwork.jpg) ;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 100%;
+	height: 400px;
+}
+
+.socialnet{
+	padding-top: 100px;
+	text-align: center;
+}
+.socialnet img{
+	padding-right: 7px;
+	padding-left: 7px;
+}
+.z6{
+	padding-top: 80px;
+	text-align: center;
+	font-family: Lato;
+	font-weight: bold;
+	font-size: 11px;
+}
+.z7{
+	padding-top: 10px;
+	text-align: center;
+	font-family: Lato;
+	font-weight: bold;
+	font-size: 14px;
+	padding-bottom: 70px;
+}
+
+.menu{
+	font-family: Lato;
+	font-weight: bold;
+	padding-right: 20px;
+	height: 80px;
+	background: rgba(255, 255, 255, 0.5);
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-size: 18px;
+	line-height: 80px;
+}
+.menu ul li{
+	padding-left: 15px;
+	padding-right: 15px;
+	float: right; 
+	text-decoration: none;
+	list-style: none;
+	display: inline-block;
+}
+.menu a{
+	color: #000;
+}
+.menu a:hover{
+	color: #DD0000;
+	text-decoration: none;
+}
+#outputDiv img{
+	padding: 10px;
+	height: 200px;
+}
